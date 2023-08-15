@@ -4,20 +4,22 @@ from sqlalchemy import exc
 import json
 from flask_cors import CORS
 
-from .database.models import db_drop_and_create_all, setup_db, Drink
-from .auth.auth import AuthError, requires_auth
+from database.models import db_drop_and_create_all, setup_db, Drink
+from auth.auth import AuthError, requires_auth
 
 app = Flask(__name__)
 setup_db(app)
 CORS(app)
 
 '''
+DONE
 @TODO uncomment the following line to initialize the datbase
 !! NOTE THIS WILL DROP ALL RECORDS AND START YOUR DB FROM SCRATCH
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 !! Running this function will add one
 '''
-# db_drop_and_create_all()
+# with app.app_context():
+#     db_drop_and_create_all()
 
 # ROUTES
 '''
